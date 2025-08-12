@@ -53,10 +53,22 @@ def handle_start(message):
 Для этого нужно быстрее всех нажать на кнопку 'Получить!'
 Только три первых пользователя получат картинку!)
 
-Команды:
-/rating""")
+Комманды:
+/start
+/rating
+/help
+""")
+        
+@bot.message_handler(commands=['help'])
+def handle_start(message):
+    bot.send_message(message.chat.id, """
+Комманды:
+/start
+/rating
+/help!
+""")
 
-
+        
 @bot.message_handler(commands=['rating'])
 def handle_rating(message):
     res = manager.get_rating() 
